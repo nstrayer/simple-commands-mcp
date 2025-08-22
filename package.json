@@ -1,0 +1,54 @@
+{
+	"name": "simple-commands-mcp",
+	"version": "1.0.0",
+	"description": "A configuration-driven MCP server for running developer commands and tools",
+	"main": "dist/server.js",
+	"type": "module",
+	"bin": {
+		"simple-commands-mcp": "./dist/simple-commands-mcp"
+	},
+	"scripts": {
+		"build": "npm run build:server && npm run build:cli",
+		"build:server": "esbuild src/server.ts --bundle --platform=node --target=node18 --outfile=dist/server.js --format=esm --sourcemap --banner:js='import { createRequire } from \"module\";const require = createRequire(import.meta.url);'",
+		"build:cli": "esbuild src/cli.ts --bundle --platform=node --target=node18 --outfile=dist/cli.js --format=esm --sourcemap --banner:js='import { createRequire } from \"module\";const require = createRequire(import.meta.url);' && echo '#!/usr/bin/env node\\nimport(\"./cli.js\");' > dist/simple-commands-mcp && chmod +x dist/simple-commands-mcp",
+		"build:watch": "npm run build:server -- --watch",
+		"start": "node dist/server.js",
+		"dev": "tsx src/server.ts",
+		"clean": "rm -rf dist",
+		"prestart": "npm run build",
+		"prepublishOnly": "npm run clean && npm run build"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.17.3",
+		"winston": "^3.17.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.0",
+		"esbuild": "^0.25.9",
+		"tsx": "^4.20.4",
+		"typescript": "^5.9.2"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"author": "",
+	"license": "MIT",
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"ai",
+		"assistant",
+		"tools",
+		"commands",
+		"automation",
+		"developer-tools"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yourusername/simple-commands-mcp.git"
+	},
+	"bugs": {
+		"url": "https://github.com/yourusername/simple-commands-mcp/issues"
+	},
+	"homepage": "https://github.com/yourusername/simple-commands-mcp#readme"
+}

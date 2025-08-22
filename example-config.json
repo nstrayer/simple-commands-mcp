@@ -1,0 +1,40 @@
+{
+  "tools": [
+    {
+      "name": "list_files",
+      "description": "List all files in the current directory",
+      "command": "ls -la",
+      "daemon": false
+    },
+    {
+      "name": "git_status",
+      "description": "Show git repository status",
+      "command": "git status",
+      "daemon": false
+    },
+    {
+      "name": "run_tests",
+      "description": "Run the test suite",
+      "command": "npm test",
+      "daemon": false
+    },
+    {
+      "name": "build",
+      "description": "Build the project",
+      "command": "npm run build",
+      "daemon": false
+    },
+    {
+      "name": "dev_server",
+      "description": "Start the development server with hot reload",
+      "command": "npm run dev",
+      "daemon": true
+    },
+    {
+      "name": "watch_tests",
+      "description": "Run tests in watch mode",
+      "command": "npm run test:watch",
+      "daemon": true
+    }
+  ]
+}

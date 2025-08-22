@@ -1,0 +1,36 @@
+# Source files
+src/
+*.ts
+
+# Configuration files
+tsconfig.json
+.gitignore
+
+# Development files
+*.log
+node_modules/
+.npm
+.vscode/
+.idea/
+
+# Build files
+*.map
+
+# Test files
+test/
+*.test.js
+*.spec.js
+
+# Documentation source
+docs/
+
+# Git
+.git/
+.github/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Example/test configs (keep config.json as example)
+server.log
